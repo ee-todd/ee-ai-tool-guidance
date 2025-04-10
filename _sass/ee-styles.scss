@@ -1,41 +1,40 @@
-// GOV.UK and Defra colour variables
+// Equal Experts colour variables
 :root {
-  // Defra colours
-  --defra-green: #00a33b;
-  --defra-dark-green: #008938;
-  --defra-light-green: #6fb524;
+  // Primary EE colours
+  --ee-orange: #ff6b00;
+  --ee-dark-blue: #262a3b;
+  --ee-light-blue: #3e90cc;
   
-  // GOV.UK colours
-  --govuk-blue: #1d70b8;
-  --govuk-dark-blue: #003078;
-  --govuk-light-blue: #5694ca;
-  --govuk-black: #0b0c0c;
-  --govuk-dark-grey: #505a5f;
-  --govuk-mid-grey: #b1b4b6;
-  --govuk-light-grey: #f3f2f1;
-  --govuk-white: #ffffff;
+  // Secondary EE colours
+  --ee-dark-grey: #313131;
+  --ee-mid-grey: #767676;
+  --ee-light-grey: #f3f3f3;
+  --ee-white: #ffffff;
+  --ee-black: #000000;
 }
 
 // Theme variables
 :root[data-theme="light"] {
-  --bg-color: var(--govuk-white);
-  --text-color: var(--govuk-black);
-  --link-color: var(--govuk-blue);
-  --link-hover-color: var( --govuk-dark-blue);
-  --nav-bg: var(--govuk-white);
-  --border-color: var(--govuk-mid-grey);
-  --header-color: var(--govuk-blue);
+  --bg-color: var(--ee-white);
+  --text-color: var(--ee-dark-grey);
+  --link-color: var(--ee-light-blue);
+  --link-hover-color: var(--ee-dark-blue);
+  --nav-bg: var(--ee-white);
+  --border-color: var(--ee-light-grey);
+  --header-color: var(--ee-dark-blue);
+  --accent-color: var(--ee-orange);
 }
 
 :root[data-theme="dark"] {
   --bg-color: #1a1a1a;
   --text-color: #e0e0e0;
-  --link-color: var(--govuk-light-blue);
-  --link-hover-color: var(--govuk-blue);
+  --link-color: var(--ee-light-blue);
+  --link-hover-color: var(--ee-orange);
   --nav-bg: #2d2d2d;
   --border-color: #404040;
-  --header-color: var(--govuk-light-blue);
-  --code-bg-color: var(--govuk-light-grey);
+  --header-color: var(--ee-orange);
+  --accent-color: var(--ee-orange);
+  --code-bg-color: var(--ee-light-grey);
 }
 
 // Override default theme colours
@@ -45,7 +44,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-size: 0.95rem;  /* Reduced from 1rem for smaller default text size */
+  font-size: 0.95rem;
+  font-family: 'Open Sans', Arial, sans-serif;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -55,20 +55,24 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: var(--header-color);
   margin-bottom: 1rem;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
 }
 
 // Global link styles
 a:link, a:visited {
-  color: #1d70b8;
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover, a:focus {
-  color: #003078;
+  color: var(--link-hover-color);
+  text-decoration: underline;
 }
 
 a:active {
-  color: #0b0c0c;
-  background-color: #ffdd00; // GOV.UK yellow
+  color: var(--accent-color);
 }
 
 // Theme toggle styles
@@ -84,7 +88,7 @@ a:active {
 
 .theme-toggle-switch {
   display: inline-block;
-  background: var(--govuk-light-grey);
+  background: var(--ee-light-grey);
   border-radius: 16px;
   width: 58px;
   height: 32px;
@@ -95,7 +99,7 @@ a:active {
   &:before {
     content: "";
     display: block;
-    background: linear-gradient(to bottom, var(--govuk-white) 0%, var(--govuk-light-grey) 100%);
+    background: linear-gradient(to bottom, var(--ee-white) 0%, var(--ee-light-grey) 100%);
     border-radius: 50%;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
     width: 24px;
@@ -115,22 +119,22 @@ a:active {
     
     &.light {
       left: 6px;
-      color: var(--govuk-white);
+      color: var(--ee-white);
     }
     
     &.dark {
       right: 6px;
-      color: var(--govuk-white);
+      color: var(--ee-white);
     }
   }
 
   .theme-toggle:hover &:before {
-    background: linear-gradient(to bottom, var(--govuk-white) 0%, var(--govuk-white) 100%);
+    background: linear-gradient(to bottom, var(--ee-white) 0%, var(--ee-white) 100%);
     box-shadow: 0 0 0 1px rgba(0,0,0,0.5);
   }
 
   .theme-toggle-checkbox:checked + & {
-    background: var(--defra-green);
+    background: var(--ee-orange);
     
     &:before {
       left: 30px;
@@ -143,11 +147,6 @@ a:active {
   visibility: hidden;
 }
 
-// Update the JavaScript to handle the checkbox
-[data-theme="dark"] .theme-toggle-checkbox {
-  checked: true;
-}
-
 // Wrapper styling
 .wrapper {
   display: flex;
@@ -155,22 +154,22 @@ a:active {
   min-height: 100vh;
   background-color: var(--bg-color);
   width: 100%;
-  max-width: 1400px; /* Limit maximum width */
-  overflow-x: hidden; /* Prevent horizontal scrolling at wrapper level */
-  margin: 0 auto; /* Center the wrapper */
-  padding-left: 2rem; /* Add left padding to the entire page */
-  padding-right: 2rem; /* Add right padding to the entire page */
+  max-width: 1400px;
+  overflow-x: hidden;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 // Navigation styling
 .navigation {
   width: 270px;
-  min-width: 200px; /* Minimum width to prevent squeezing */
-  max-width: 30vw; /* Cap width on very large screens */
-  padding: 2rem 1.5rem 2rem 0.5rem; /* Reduced left padding to balance with wrapper padding */
+  min-width: 200px;
+  max-width: 30vw;
+  padding: 2rem 1.5rem 2rem 0.5rem;
   background: var(--nav-bg);
   border-right: 1px solid var(--border-color);
-  overflow-x: auto; /* Allow horizontal scrolling within nav when needed */
+  overflow-x: auto;
   
   .logo-container {
     margin-bottom: 2rem;
@@ -198,8 +197,8 @@ a:active {
   max-width: 100%;
   box-sizing: border-box;
   word-wrap: break-word;
-  word-break: break-word; /* Added to force break words */
-  margin: 0 auto; /* Center content */
+  word-break: break-word;
+  margin: 0 auto;
 }
 
 section {
@@ -230,11 +229,11 @@ section {
   }
 
   li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     
     li {
-      margin-bottom: 3px;
-      font-size: 13px;
+      margin-bottom: 4px;
+      font-size: 14px;
     }
   }
 
@@ -256,7 +255,7 @@ header {
   h1 {
     margin-top: 0;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     
     a {
       color: inherit;
@@ -271,7 +270,7 @@ header {
 
   p {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -285,10 +284,10 @@ footer {
 }
 
 // Footer meta styling
-.govuk-footer__meta {
+.ee-footer__meta {
   max-width: 100%;
   overflow-x: hidden;
-  border-top: 4px solid var(--govuk-dark-grey); // Thick divider bar
+  border-top: 4px solid var(--ee-orange);
 }
 
 // Media queries
@@ -298,15 +297,15 @@ footer {
     width: 100%;
     overflow-x: hidden;
     margin: 0 auto;
-    max-width: 960px; /* Adjusted for this breakpoint */
-    padding-left: 1.5rem; /* Reduced padding for smaller screens */
-    padding-right: 1.5rem; /* Reduced padding for smaller screens */
+    max-width: 960px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .navigation {
     width: auto;
-    max-width: 100%; /* Full width on small screens */
-    min-width: 0; /* Override the minimum width */
+    max-width: 100%;
+    min-width: 0;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
     overflow-x: auto;
@@ -325,13 +324,13 @@ footer {
 // Even smaller screens or very large fonts
 @media print, screen and (max-width: 480px) {
   body {
-    justify-content: flex-start; /* Don't center on very small screens */
+    justify-content: flex-start;
   }
   
   .wrapper {
-    max-width: 100%; /* Full width on smallest screens */
-    padding-left: 1rem; /* Further reduce padding on smallest screens */
-    padding-right: 1rem; /* Further reduce padding on smallest screens */
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
   .navigation, .content {
@@ -344,27 +343,27 @@ footer {
   .content {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    overflow-x: hidden; /* Prevent horizontal scrolling on small screens */
+    overflow-x: hidden;
   }
   
   // Adjust typography for very small screens / very large fonts
-  h1 { font-size: 1.2rem; }
-  h2 { font-size: 1.1rem; }
+  h1 { font-size: 1.3rem; }
+  h2 { font-size: 1.2rem; }
   h3 { font-size: 1rem; }
   
   // Make navigation more compact
   .site-nav {
     li {
-      margin-bottom: 3px;
+      margin-bottom: 5px;
       
       li {
-        margin-bottom: 2px;
+        margin-bottom: 3px;
       }
     }
   }
   
   // Adjust footer for very small screens
-  .govuk-footer__meta {
+  .ee-footer__meta {
     display: block;
   }
   
@@ -376,20 +375,20 @@ footer {
   }
   
   // Handle long text and URLs
-  a, code, pre, .govuk-footer__link {
+  a, code, pre, .ee-footer__link {
     word-break: break-all;
     max-width: 100%;
   }
   
   // Long text in footer items
-  .govuk-footer__meta-item {
+  .ee-footer__meta-item {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
   }
   
   // Reduce long text
-  .govuk-footer__inline-list-item {
+  .ee-footer__inline-list-item {
     width: 100%;
     max-width: 100%;
     display: block;
@@ -402,36 +401,41 @@ hr {
 }
 
 .logo-container {
-  img.logo-light {
-    display: block;
-  }
-  img.logo-dark {
-    display: none;
-  }
+  margin-bottom: 1.5rem;
 }
 
-[data-theme="dark"] {
-  .logo-container {
-    img.logo-light {
-      display: none;
-    }
-    img.logo-dark {
-      display: block;
-    }
-  }
+.ee-logo {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  color: #262A3B;
+  text-transform: none;
 }
 
+.ee-logo span {
+  color: #262A3B;
+}
+
+[data-theme="dark"] .ee-logo, 
+[data-theme="dark"] .ee-logo span {
+  color: #ffffff;
+}
+
+// Code styling
 code {
-  padding: 0;
-  background-color: transparent;
+  padding: 0.2em 0.4em;
+  background-color: var(--ee-light-grey);
   color: var(--text-color);
   font-family: monospace;
   white-space: pre-wrap;
   word-wrap: break-word;
+  border-radius: 3px;
 }
 
 [data-theme="dark"] pre code {
-  color: var(--govuk-black);
+  color: var(--ee-dark-grey);
 }
 
 h2 {
@@ -444,76 +448,73 @@ h2 {
 }
 
 /* Base footer styles */
-.govuk-footer {
-  background-color: #f3f2f1;
+.ee-footer {
+  background-color: var(--ee-light-grey);
   padding: 20px 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
 
 /* Centering the footer content */
-.govuk-width-container {
+.ee-width-container {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
 /* Footer meta section */
-.govuk-footer__meta {
+.ee-footer__meta {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  border-top: 1px solid #b1b4b6;
+  border-top: 1px solid var(--ee-mid-grey);
   padding-top: 15px;
   margin-top: 15px;
   padding-bottom: 15px;
 }
 
 /* Footer meta item */
-.govuk-footer__meta-item {
+.ee-footer__meta-item {
   flex: 1;
   min-width: 250px;
 }
 
-.govuk-footer__meta-item--grow {
+.ee-footer__meta-item--grow {
   flex-grow: 2;
 }
 
 /* License logo and description */
-.govuk-footer__licence-logo {
+.ee-footer__licence-logo {
   display: inline-block;
   vertical-align: middle;
-  width: 40px;
-  height: 17px;
   margin-right: 10px;
   fill: currentColor;
 }
 
-.govuk-footer__licence-description {
+.ee-footer__licence-description {
   display: inline-block;
 }
 
 /* Footer links */
-.govuk-footer__link {
-  color: #1d70b8;
+.ee-footer__link {
+  color: var(--link-color);
   text-decoration: none;
 }
 
-.govuk-footer__link:hover {
-  color: #003078;
+.ee-footer__link:hover {
+  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
 /* Copyright logo */
-.govuk-footer__copyright-logo {
+.ee-footer__copyright-logo {
   font-weight: bold;
   font-size: 16px;
   display: block;
   margin-top: 10px;
 }
-
 
 [data-theme="dark"] strong {
   color: #ffffff;
@@ -521,13 +522,17 @@ h2 {
 }
 
 // Ensure all links have an underline on hover
-.govuk-footer__link:hover, a:hover, a:focus {
-  color: #003078;
+.ee-footer__link:hover, a:hover, a:focus {
+  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
+// Code blocks
 pre.highlight {
-  color: var(--govuk-black);
+  background-color: var(--ee-light-grey);
+  border-radius: 4px;
+  padding: 1em;
+  overflow-x: auto;
 }
 
 pre {
@@ -537,7 +542,7 @@ pre {
 
 // Add responsive font scaling for better accessibility
 html {
-  font-size: 90%;  /* Reduced from 100% to make default text smaller */
+  font-size: 100%;
 }
 
 // Table styling to ensure they're responsive
@@ -546,7 +551,18 @@ table {
   width: 100%;
   overflow-x: auto;
   max-width: 100%;
-  white-space: nowrap;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+th, td {
+  padding: 0.5em;
+  border: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--ee-light-grey);
+  font-weight: 600;
 }
 
 @media (min-width: 768px) {
@@ -561,8 +577,43 @@ img {
   height: auto;
 }
 
-// Make paragraphs and lists more readable with the smaller default size
+// Make paragraphs and lists more readable
 p, li {
-  line-height: 1.5;
-  margin-bottom: 0.8em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+// Buttons and callouts
+.ee-button, .ee-callout {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background-color: var(--ee-orange);
+  color: var(--ee-white);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.ee-button:hover {
+  background-color: #e66000; /* Slightly darker orange */
+  text-decoration: none;
+  color: var(--ee-white);
+}
+
+.ee-callout {
+  display: block;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-left: 4px solid var(--ee-orange);
+  background-color: var(--ee-light-grey);
+}
+
+// Blockquotes
+blockquote {
+  border-left: 4px solid var(--ee-orange);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--ee-mid-grey);
+  font-style: italic;
 }

@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
+    <!-- Use the official Equal Experts favicon -->
+    <link rel="icon" type="image/png" href="{{ "/assets/images/favicon.png" | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.css_version | relative_url }}">
@@ -87,14 +91,11 @@
   <body>
     <div class="wrapper">
       <div class="navigation">
-        {% if site.logo %}
         <div class="logo-container">
-          <a href="/defra-ai-sdlc">
-            <img class="logo-light" src="{{site.logo | relative_url}}" alt="Defra Logo" />
-            <img class="logo-dark" src="{{ "/assets/images/defra-logo-white.svg" | relative_url }}" alt="Defra Logo" />
+          <a href="{{ "/" | relative_url }}">
+            <img src="{{ '/assets/images/equal-experts-logo.svg' | relative_url }}" alt="Equal Experts" class="ee-logo-image">
           </a>
         </div>
-        {% endif %}
 
         <header>
           <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
@@ -104,7 +105,7 @@
         <!-- Theme Toggle -->
         <label class="theme-toggle">
           <input class="theme-toggle-checkbox" type="checkbox">
-          <div class="theme-toggle-switch" style="background: var(--govuk-dark-grey);">
+          <div class="theme-toggle-switch" style="background: var(--ee-dark-grey);">
             <span class="toggle-icon light" style="display: flex; align-items: center;">
               <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                 <circle cx="12" cy="12" r="5"></circle>
@@ -130,29 +131,17 @@
         <nav class="site-nav">
           <h2>Navigation</h2>
           <ul>
-            <li><a href="/defra-ai-sdlc/">Home</a></li>
-            <li><a href="/defra-ai-sdlc/#overview">Overview</a></li>
-             <li>
-              <a href="/defra-ai-sdlc/workflow/">AI Development Workflow</a>
+            <li><a href="{{ "/" | relative_url }}">Home</a></li>
+            <li><a href="{{ "/" | relative_url }}#overview">Overview</a></li>
+            <li>
+              <a href="#">AI Tools</a>
               <ul>
-                <li><a href="/defra-ai-sdlc/workflow/workflow-getting-started">Getting Started</a></li>
-                <li><a href="/defra-ai-sdlc/workflow/workflow-project-setup">Project Setup</a></li>
-                <li><a href="/defra-ai-sdlc/workflow/">Feature Development Lifecycle</a></li>
-                  <ul>
-                    <li><a href="/defra-ai-sdlc/workflow/workflow-product-requirements">Product Requirements</a></li>
-                    <li><a href="/defra-ai-sdlc/workflow/workflow-development">Development</a></li>
-                    <li><a href="/defra-ai-sdlc/workflow/workflow-testing">Testing</a></li>
-                    <li><a href="/defra-ai-sdlc/workflow/workflow-refactoring">Refactoring</a></li>
-                    <li><a href="/defra-ai-sdlc/workflow/workflow-documentation">Documentation</a></li>
-                  </ul>
-                </li>
+                <li><a href="{{ "/tool-guidance/chat-gpt-summary" | relative_url }}">ChatGPT</a></li>
+                <li><a href="{{ "/tool-guidance/cursor-summary" | relative_url }}">Cursor</a></li>
+                <li><a href="{{ "/tool-guidance/aws-bedrock-detailed-todd" | relative_url }}">AWS Bedrock</a></li>
               </ul>
             </li>
-            <li><a href="/defra-ai-sdlc/prompt-library/prompting-guidance">Prompting Guidance</a></li>
-            <li><a href="/defra-ai-sdlc/prompt-library">Prompting Library</a></li>
-            <li><a href="/defra-ai-sdlc/language-specific">Language Specific Resources</a></li>
-            <li><a href="/defra-ai-sdlc/workflow/workflow-learning">Learning with AI</a></li>
-            <li><a href="/defra-ai-sdlc/general/ai-working-mindset">AI Working Mindset</a></li>        
+            <li><a href="{{ "/prompts/tool-summary-prompt" | relative_url }}">Prompt Examples</a></li>
           </ul>
         </nav>
         
@@ -176,68 +165,27 @@
         </section>
 
         <!-- Footer -->
-        <div class="govuk-footer__meta">
-            <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-                <h2 class="govuk-visually-hidden">Support links</h2>
-                <ul class="govuk-footer__inline-list govuk-!-display-none-print">
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;1&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs">Department for Environment, Food & Rural Affairs (Defra)</a>
+        <div class="ee-footer__meta">
+            <div class="ee-footer__meta-item ee-footer__meta-item--grow">
+                <h2 class="ee-visually-hidden">Support links</h2>
+                <ul class="ee-footer__inline-list">
+                    <li class="ee-footer__inline-list-item">
+                      <a class="ee-footer__link" href="https://www.equalexperts.com/">Equal Experts</a>
                     </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;1&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/help">Help</a>
+                    <li class="ee-footer__inline-list-item">
+                      <a class="ee-footer__link" href="https://www.equalexperts.com/contact-us/">Contact Us</a>
                     </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;2&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/help/privacy-notice">Privacy</a>
+                    <li class="ee-footer__inline-list-item">
+                      <a class="ee-footer__link" href="https://www.equalexperts.com/privacy-policy/">Privacy Policy</a>
                     </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;3&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/help/cookies">Cookies</a>
-                    </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;4&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/help/accessibility-statement">Accessibility statement</a>
-                    </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;5&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/contact">Contact</a>
-                    </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;6&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/help/terms-conditions">Terms and conditions</a>
-                    </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" lang="cy" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;7&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/cymraeg">Rhestr o Wasanaethau Cymraeg</a>
-                    </li>
-                    <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" data-ga4-link="{&quot;event_name&quot;:&quot;navigation&quot;,&quot;type&quot;:&quot;footer&quot;,&quot;index_link&quot;:&quot;8&quot;,&quot;index_section&quot;:&quot;3&quot;,&quot;index_section_count&quot;:&quot;5&quot;,&quot;index_total&quot;:&quot;8&quot;,&quot;section&quot;:&quot;Support links&quot;}" href="https://www.gov.uk/government/organisations/government-digital-service">Government Digital Service</a>
+                    <li class="ee-footer__inline-list-item">
+                      <a class="ee-footer__link" href="https://www.equalexperts.com/cookie-policy/">Cookie Policy</a>
                     </li>
                 </ul>
-                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    class="govuk-footer__licence-logo"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 483.2 195.7"
-                    height="17"
-                    width="41">
-                    <path
-                      fill="currentColor"
-                      d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
-                  </svg>
-                  <span class="govuk-footer__licence-description">
-                    All content is available under the
-                    <a
-                      class="govuk-footer__link"
-                      href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-                      rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+                <div class="ee-footer__meta-item ee-footer__meta-item--grow">
+                  <span class="ee-footer__licence-description">
+                    © {{ 'now' | date: "%Y" }} Equal Experts Ltd. All rights reserved.
                   </span>
-                </div>
-                <br/>
-                <div class="govuk-footer__meta-item">
-                  <a
-                    class="govuk-footer__link govuk-footer__copyright-logo"
-                    href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
-                    <img src="{{ '/assets/images/govuk-crest.svg' | relative_url }}" alt="GOV.UK crest" width="125" height="102" />
-                    <br/>
-                    © Crown copyright
-                  </a>
                 </div>
               </div>
             </div>

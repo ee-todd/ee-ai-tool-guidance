@@ -1,4 +1,17 @@
 ---
 ---
 @import "{{ site.theme }}";
-@import "defra-styles";
+@import "ee-styles";
+
+// Logo styling with increased specificity
+.navigation .logo-container {
+  padding: 15px 0;
+}
+
+.navigation .logo-container .ee-logo-image,
+.logo-container img.ee-logo-image {
+  height: 100px !important; /* Even larger with !important flag */
+  width: auto !important;
+  max-height: none !important; /* Override any max-height constraints */
+  max-width: none !important; /* Override any max-width constraints */
+}
