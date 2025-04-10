@@ -3,15 +3,82 @@
 @import "{{ site.theme }}";
 @import "ee-styles";
 
-// Logo styling with increased specificity
-.navigation .logo-container {
-  padding: 15px 0;
+/* Reset all previous logo styling attempts */
+.navigation .logo-container,
+.logo-container,
+.navigation .logo-container a,
+.logo-container a,
+.navigation .logo-container .ee-logo-image,
+.logo-container .ee-logo-image,
+.logo-container img.ee-logo-image,
+.ee-logo-image {
+  /* Clear all previous styling */
+  margin: 0;
+  padding: 0;
+  float: none;
+  text-align: inherit;
+  display: block;
+  max-width: initial;
+  max-height: initial;
 }
 
-.navigation .logo-container .ee-logo-image,
-.logo-container img.ee-logo-image {
-  height: 100px !important; /* Even larger with !important flag */
-  width: auto !important;
-  max-height: none !important; /* Override any max-height constraints */
-  max-width: none !important; /* Override any max-width constraints */
+/* Fresh approach to logo styling */
+.navigation {
+  position: relative;
+}
+
+.navigation .logo-container {
+  position: relative;
+  left: -10px; /* Negative margin to pull logo left */
+  width: calc(100% + 20px); /* Compensate for the negative margin */
+  margin-bottom: 20px;
+}
+
+.navigation .logo-container a {
+  display: block;
+}
+
+.navigation .logo-container img.ee-logo-image {
+  height: 150px;
+  width: auto;
+  display: block;
+}
+
+/* Fix theme toggle position - move it to the top right of the entire page */
+.theme-toggle {
+  position: fixed !important; /* Fixed position relative to viewport */
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  z-index: 1000 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure the wrapper has proper positioning context */
+.wrapper {
+  position: relative !important;
+}
+
+/* Adjust content area to make room for the theme toggle */
+.content {
+  padding-top: 60px !important; /* Add space at the top for the theme toggle */
+}
+
+// Add smooth scrolling to prevent jumping
+html {
+  scroll-behavior: smooth;
+}
+
+// Add scroll margin to headings to prevent them being hidden under fixed elements
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id], 
+section[id], div[id] {
+  scroll-margin-top: 100px; /* Adjust based on your header height */
+}
+
+// Fix for anchor links
+.content a[href^="#"]:not([href="#"]) {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
 }

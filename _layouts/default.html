@@ -269,5 +269,42 @@
       });
     </script>
 
+    <script>
+      // Smooth scrolling for anchor links
+      document.addEventListener('DOMContentLoaded', function() {
+        const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+        
+        anchorLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            // Only prevent default if the link is to an anchor on this page
+            if(this.getAttribute('href').charAt(0) === '#') {
+              e.preventDefault();
+              
+              const targetId = this.getAttribute('href').substring(1);
+              const targetElement = document.getElementById(targetId);
+              
+              if(targetElement) {
+                // Get the position of the target element
+                const rect = targetElement.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Calculate position with offset
+                const targetPosition = rect.top + scrollTop - 80; // Adjust offset as needed
+                
+                // Scroll smoothly to the target
+                window.scrollTo({
+                  top: targetPosition,
+                  behavior: 'smooth'
+                });
+                
+                // Update URL without jumping
+                history.pushState(null, null, this.getAttribute('href'));
+              }
+            }
+          });
+        });
+      });
+    </script>
+
   </body>
 </html> 

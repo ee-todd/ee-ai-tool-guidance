@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal
 title: Equal Experts AI Tool Guidance
-description: Guidance on the use of artificial intelligence (AI) tools within Equal Experts
+description: A comprehensive guide to effectively leveraging AI tools and techniques in software development projects.
 baseurl: '/ai-tool-guidance'
 logo: /assets/images/equal-experts-logo.svg
 version: 2.0.4
