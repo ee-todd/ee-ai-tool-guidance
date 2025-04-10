@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link rel="icon" type="image/x-icon" href="{{ "/assets/images/favicon.ico" | relative_url }}">
 
 {% seo %}
@@ -13,8 +13,74 @@
     <![endif]-->
     {% include head-custom.html %}
     <style>
+      /* Global styles for proper centering */
+      html, body {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+    
       .content {
-        overflow-x: hidden;
+        overflow-x: auto; /* Changed from hidden to auto */
+        max-width: 100%;
+      }
+      
+      /* Center wrapper while maintaining responsiveness */
+      .wrapper {
+        margin: 0 auto !important;
+        max-width: 1400px !important;
+        padding-left: 2rem !important; /* Match the padding from the CSS */
+        padding-right: 2rem !important; /* Match the padding from the CSS */
+      }
+      
+      /* Extra fallback for very large font sizes */
+      @media screen and (max-width: 768px) {
+        .wrapper {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100vw !important;
+          margin: 0 auto !important;
+          padding-left: 1.5rem !important; /* Match reduced padding for smaller screens */
+          padding-right: 1.5rem !important; /* Match reduced padding for smaller screens */
+        }
+        
+        .navigation, .content {
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+          padding: 0.5rem !important;
+          margin: 0 auto !important;
+        }
+        
+        /* Force text wrapping on small screens */
+        .content * {
+          max-width: 100% !important;
+          overflow-wrap: break-word !important;
+          word-wrap: break-word !important;
+          word-break: break-word !important;
+          hyphens: auto !important;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        .wrapper {
+          padding-left: 1rem !important; /* Match further reduced padding for smallest screens */
+          padding-right: 1rem !important; /* Match further reduced padding for smallest screens */
+        }
+        
+        /* Further improve content display on smallest screens */
+        .content {
+          padding-left: 0.25rem !important;
+          padding-right: 0.25rem !important;
+          overflow-x: hidden !important;
+        }
       }
     </style>
   </head>
@@ -23,7 +89,7 @@
       <div class="navigation">
         {% if site.logo %}
         <div class="logo-container">
-          <a href="/defra-ai-tool-guidance">
+          <a href="/defra-ai-sdlc">
             <img class="logo-light" src="{{site.logo | relative_url}}" alt="Defra Logo" />
             <img class="logo-dark" src="{{ "/assets/images/defra-logo-white.svg" | relative_url }}" alt="Defra Logo" />
           </a>
@@ -64,12 +130,29 @@
         <nav class="site-nav">
           <h2>Navigation</h2>
           <ul>
-            <li><a href="/defra-ai-tool-guidance/">Home</a></li>
-            <li>Tools
-                <ul>
-                  <li><a href="/defra-ai-tool-guidance/tool-guidance/cursor-detailed">Cursor - Detailed Guidance</a></li>
-                </ul>
+            <li><a href="/defra-ai-sdlc/">Home</a></li>
+            <li><a href="/defra-ai-sdlc/#overview">Overview</a></li>
+             <li>
+              <a href="/defra-ai-sdlc/workflow/">AI Development Workflow</a>
+              <ul>
+                <li><a href="/defra-ai-sdlc/workflow/workflow-getting-started">Getting Started</a></li>
+                <li><a href="/defra-ai-sdlc/workflow/workflow-project-setup">Project Setup</a></li>
+                <li><a href="/defra-ai-sdlc/workflow/">Feature Development Lifecycle</a></li>
+                  <ul>
+                    <li><a href="/defra-ai-sdlc/workflow/workflow-product-requirements">Product Requirements</a></li>
+                    <li><a href="/defra-ai-sdlc/workflow/workflow-development">Development</a></li>
+                    <li><a href="/defra-ai-sdlc/workflow/workflow-testing">Testing</a></li>
+                    <li><a href="/defra-ai-sdlc/workflow/workflow-refactoring">Refactoring</a></li>
+                    <li><a href="/defra-ai-sdlc/workflow/workflow-documentation">Documentation</a></li>
+                  </ul>
+                </li>
+              </ul>
             </li>
+            <li><a href="/defra-ai-sdlc/prompt-library/prompting-guidance">Prompting Guidance</a></li>
+            <li><a href="/defra-ai-sdlc/prompt-library">Prompting Library</a></li>
+            <li><a href="/defra-ai-sdlc/language-specific">Language Specific Resources</a></li>
+            <li><a href="/defra-ai-sdlc/workflow/workflow-learning">Learning with AI</a></li>
+            <li><a href="/defra-ai-sdlc/general/ai-working-mindset">AI Working Mindset</a></li>        
           </ul>
         </nav>
         
@@ -199,5 +282,44 @@
         }
       });
     </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Find all pre elements (common container for code blocks)
+        const codeBlocks = document.querySelectorAll('pre');
+
+        codeBlocks.forEach(codeBlock => {
+          // Create the copy button
+          const copyButton = document.createElement('button');
+          copyButton.className = 'copy-code-button';
+          copyButton.textContent = 'Copy';
+
+          // Append the button to the pre element
+          codeBlock.appendChild(copyButton);
+
+          // Add click event listener
+          copyButton.addEventListener('click', () => {
+            // Find the code element within the pre element
+            const codeElement = codeBlock.querySelector('code');
+            const codeToCopy = codeElement ? codeElement.innerText : codeBlock.innerText;
+
+            navigator.clipboard.writeText(codeToCopy).then(() => {
+              // Success feedback
+              copyButton.textContent = 'Copied!';
+              setTimeout(() => {
+                copyButton.textContent = 'Copy'; // Reset button text
+              }, 2000); // Reset after 2 seconds
+            }).catch(err => {
+              console.error('Failed to copy code: ', err);
+              copyButton.textContent = 'Error'; // Indicate failure
+               setTimeout(() => {
+                copyButton.textContent = 'Copy'; // Reset button text
+              }, 2000);
+            });
+          });
+        });
+      });
+    </script>
+
   </body>
 </html> 
