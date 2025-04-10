@@ -414,6 +414,7 @@ _site/
 .bundle/
 vendor/
 Gemfile.lock
+.gems/
 
 # Obsidian
 .obsidian/workspace.json
