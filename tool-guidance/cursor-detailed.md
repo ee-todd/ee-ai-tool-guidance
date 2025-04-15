@@ -113,10 +113,8 @@ Finally, compliance with UK government IT policies (like Technology Code of Prac
 
 **References:**
 
-- Cursor Security Overview ([Security](https://www.cursor.com/security)) ([Enterprise](https://www.cursor.com/enterprise))
-
-- Cursor Privacy Policy ([Privacy Policy](https://www.cursor.com/privacy))
-
-- Cursor Enterprise FAQ and Pricing ([Pricing](https://www.cursor.com/pricing)) ([Enterprise](https://www.cursor.com/enterprise))
-
-- Cursor Community Forum (GDPR discussion) ([Do the Cursor Policies comply with GDPR fully? - Discussion - Cursor - Community Forum](https://forum.cursor.com/t/do-the-cursor-policies-comply-with-gdpr-fully/20294))
+- [Cursor Security Overview](https://www.cursor.com/security)
+- [Cursor Enterprise](https://www.cursor.com/enterprise)
+- [Cursor Privacy Policy](https://www.cursor.com/privacy)
+- [Cursor Pricing](https://www.cursor.com/pricing)
+- [Do the Cursor Policies comply with GDPR fully?](https://forum.cursor.com/t/do-the-cursor-policies-comply-with-gdpr-fully/20294)
