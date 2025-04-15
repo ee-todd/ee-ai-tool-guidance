@@ -1,5 +1,7 @@
 ---
+# Front matter to enable Jekyll processing
 ---
+
 @import "{{ site.theme }}";
 @import "ee-styles";
 
@@ -126,4 +128,24 @@ section[id], div[id] {
 .toggle-icon.dark {
   display: flex;
   align-items: center;
+}
+
+/* Make bullet lists more compact */
+.content ul,
+.content ol {
+  margin-bottom: 1em;
+}
+
+.content ul li,
+.content ol li {
+  margin-bottom: 0.4em; /* Reduced from 1em to make lists more compact */
+}
+
+/* Style nested lists correctly */
+.content ul ul,
+.content ul ol,
+.content ol ul,
+.content ol ol {
+  margin-top: 0.4em; /* Add a bit of space above nested lists */
+  margin-bottom: 0; /* Remove bottom margin on nested lists */
 }
