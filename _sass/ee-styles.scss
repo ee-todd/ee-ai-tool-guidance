@@ -47,7 +47,9 @@ body {
   font-size: 0.95rem;
   font-family: 'Open Sans', Arial, sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -154,7 +156,7 @@ a:active {
   min-height: 100vh;
   background-color: var(--bg-color);
   width: 100%;
-  max-width: 1400px;
+  max-width: 1800px;
   overflow-x: hidden;
   margin: 0 auto;
   padding-left: 2rem;
@@ -163,13 +165,14 @@ a:active {
 
 // Navigation styling
 .navigation {
-  width: 270px;
-  min-width: 200px;
-  max-width: 30vw;
-  padding: 2rem 1.5rem 2rem 0.5rem;
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  padding: 2rem 1rem 2rem 0.5rem;
   background: var(--nav-bg);
   border-right: 1px solid var(--border-color);
   overflow-x: auto;
+  flex: 0 0 auto;
   
   .logo-container {
     margin-bottom: 2rem;
@@ -186,15 +189,15 @@ a:active {
 
 // Content area styling
 .content {
-  flex: 1;
+  flex: 1 1 auto;
   padding-top: 2rem;
   padding-left: 3rem;
   padding-right: 3rem;
   overflow-y: auto;
   overflow-x: auto;
   background-color: var(--bg-color);
-  width: 100%;
-  max-width: 100%;
+  width: calc(100% - 250px);
+  max-width: none;
   box-sizing: border-box;
   word-wrap: break-word;
   word-break: break-word;
@@ -303,9 +306,9 @@ footer {
   }
 
   .navigation {
-    width: auto;
-    max-width: 100%;
-    min-width: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
     overflow-x: auto;
@@ -314,8 +317,8 @@ footer {
 
   .content {
     padding: 1rem;
-    max-width: 100%;
-    width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
     overflow-x: auto;
     margin: 0 auto;
   }
@@ -335,7 +338,7 @@ footer {
   
   .navigation, .content {
     padding: 0.5rem;
-    width: 100%;
+    width: 100% !important;
     margin: 0 auto;
   }
   

@@ -22,11 +22,7 @@
   max-height: initial;
 }
 
-/* Fresh approach to logo styling */
-.navigation {
-  position: relative;
-}
-
+/* Logo styling */
 .navigation .logo-container {
   position: relative;
   left: -10px; /* Negative margin to pull logo left */
@@ -44,41 +40,90 @@
   display: block;
 }
 
-/* Fix theme toggle position - move it to the top right of the entire page */
+/* Layout improvements */
+.wrapper {
+  position: relative !important;
+  max-width: 1800px !important;
+  width: 100% !important;
+}
+
+/* Navigation styling */
+.navigation {
+  position: relative;
+  width: 280px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
+  flex: 0 0 auto !important;
+}
+
+/* Content area improvements */
+.content {
+  flex: 1 1 auto !important;
+  max-width: none !important;
+  width: 70% !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-top: 60px !important;
+}
+
+.content section {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fix paragraphs and lists in content area for readability */
+.content p, 
+.content li,
+.content ul,
+.content ol {
+  max-width: 800px;
+}
+
+/* Theme toggle position */
 .theme-toggle {
-  position: fixed !important; /* Fixed position relative to viewport */
+  position: fixed !important;
   top: 20px !important;
   right: 20px !important;
   left: auto !important;
   z-index: 1000 !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
-/* Ensure the wrapper has proper positioning context */
-.wrapper {
-  position: relative !important;
-}
-
-/* Adjust content area to make room for the theme toggle */
-.content {
-  padding-top: 60px !important; /* Add space at the top for the theme toggle */
-}
-
-// Add smooth scrolling to prevent jumping
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-// Add scroll margin to headings to prevent them being hidden under fixed elements
+/* Prevent headings being hidden under fixed elements */
 h1[id], h2[id], h3[id], h4[id], h5[id], h6[id], 
 section[id], div[id] {
-  scroll-margin-top: 100px; /* Adjust based on your header height */
+  scroll-margin-top: 100px;
 }
 
-// Fix for anchor links
+/* Fix for anchor links */
 .content a[href^="#"]:not([href="#"]) {
   display: inline-block;
   position: relative;
   text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 960px) {
+  .content, .navigation {
+    width: 100% !important;
+  }
+  
+  .wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Theme toggle styling */
+.theme-toggle-switch {
+  background: var(--ee-dark-grey);
+}
+
+.toggle-icon.light,
+.toggle-icon.dark {
+  display: flex;
+  align-items: center;
 }

@@ -16,77 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     {% include head-custom.html %}
-    <style>
-      /* Global styles for proper centering */
-      html, body {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      
-      body {
-        flex-direction: column;
-        align-items: center;
-      }
-    
-      .content {
-        overflow-x: auto; /* Changed from hidden to auto */
-        max-width: 100%;
-      }
-      
-      /* Center wrapper while maintaining responsiveness */
-      .wrapper {
-        margin: 0 auto !important;
-        max-width: 1400px !important;
-        padding-left: 2rem !important; /* Match the padding from the CSS */
-        padding-right: 2rem !important; /* Match the padding from the CSS */
-      }
-      
-      /* Extra fallback for very large font sizes */
-      @media screen and (max-width: 768px) {
-        .wrapper {
-          display: block !important;
-          width: 100% !important;
-          max-width: 100vw !important;
-          margin: 0 auto !important;
-          padding-left: 1.5rem !important; /* Match reduced padding for smaller screens */
-          padding-right: 1.5rem !important; /* Match reduced padding for smaller screens */
-        }
-        
-        .navigation, .content {
-          width: 100% !important;
-          max-width: 100% !important;
-          box-sizing: border-box !important;
-          padding: 0.5rem !important;
-          margin: 0 auto !important;
-        }
-        
-        /* Force text wrapping on small screens */
-        .content * {
-          max-width: 100% !important;
-          overflow-wrap: break-word !important;
-          word-wrap: break-word !important;
-          word-break: break-word !important;
-          hyphens: auto !important;
-        }
-      }
-      
-      @media screen and (max-width: 480px) {
-        .wrapper {
-          padding-left: 1rem !important; /* Match further reduced padding for smallest screens */
-          padding-right: 1rem !important; /* Match further reduced padding for smallest screens */
-        }
-        
-        /* Further improve content display on smallest screens */
-        .content {
-          padding-left: 0.25rem !important;
-          padding-right: 0.25rem !important;
-          overflow-x: hidden !important;
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -105,8 +34,8 @@
         <!-- Theme Toggle -->
         <label class="theme-toggle">
           <input class="theme-toggle-checkbox" type="checkbox">
-          <div class="theme-toggle-switch" style="background: var(--ee-dark-grey);">
-            <span class="toggle-icon light" style="display: flex; align-items: center;">
+          <div class="theme-toggle-switch">
+            <span class="toggle-icon light">
               <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                 <circle cx="12" cy="12" r="5"></circle>
                 <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -119,7 +48,7 @@
                 <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
               </svg>
             </span>
-            <span class="toggle-icon dark" style="display: flex; align-items: center;">
+            <span class="toggle-icon dark">
               <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
