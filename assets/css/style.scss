@@ -149,3 +149,47 @@ section[id], div[id] {
   margin-top: 0.4em; /* Add a bit of space above nested lists */
   margin-bottom: 0; /* Remove bottom margin on nested lists */
 }
+
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Handle long words and URLs to prevent overflow */
+.content p, 
+.content li, 
+.content a, 
+.content code, 
+.content pre {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Fix footer on mobile */
+.ee-footer__meta {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.ee-footer__inline-list {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ee-footer__inline-list-item {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .ee-footer__inline-list {
+    flex-direction: column;
+  }
+  
+  .ee-footer__inline-list-item {
+    margin-bottom: 5px;
+  }
+}

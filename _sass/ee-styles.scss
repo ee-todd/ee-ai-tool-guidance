@@ -171,7 +171,7 @@ a:active {
   padding: 2rem 1rem 2rem 0.5rem;
   background: var(--nav-bg);
   border-right: 1px solid var(--border-color);
-  overflow-x: auto;
+  overflow-x: hidden;
   flex: 0 0 auto;
   
   .logo-container {
@@ -311,15 +311,16 @@ footer {
     min-width: 0 !important;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
-    overflow-x: auto;
+    overflow-x: hidden;
     margin: 0 auto;
+    padding: 1rem;
   }
 
   .content {
     padding: 1rem;
     max-width: 100% !important;
     width: 100% !important;
-    overflow-x: auto;
+    overflow-x: hidden;
     margin: 0 auto;
   }
 }
@@ -328,18 +329,22 @@ footer {
 @media print, screen and (max-width: 480px) {
   body {
     justify-content: flex-start;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-size: 14px; /* Slightly smaller base font size for mobile */
   }
   
   .wrapper {
     max-width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem; /* Reduce left padding */
+    padding-right: 0.5rem; /* Reduce right padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
   
   .navigation, .content {
     padding: 0.5rem;
     width: 100% !important;
     margin: 0 auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
   
   /* Improve content display on small screens */
@@ -350,9 +355,24 @@ footer {
   }
   
   // Adjust typography for very small screens / very large fonts
-  h1 { font-size: 1.3rem; }
-  h2 { font-size: 1.2rem; }
-  h3 { font-size: 1rem; }
+  h1 { 
+    font-size: 1.4rem; 
+    line-height: 1.2;
+  }
+  
+  h2 { 
+    font-size: 1.2rem; 
+    line-height: 1.2;
+  }
+  
+  h3 { 
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+  
+  pre, code {
+    font-size: 0.85rem;
+  }
   
   // Make navigation more compact
   .site-nav {
