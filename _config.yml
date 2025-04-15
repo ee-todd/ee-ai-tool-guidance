@@ -36,4 +36,3 @@ exclude:
   - .jekyll-cache/
   - gemfiles/
   - .DS_Store
-  - prompts/
