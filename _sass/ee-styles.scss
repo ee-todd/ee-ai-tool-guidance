@@ -581,9 +581,19 @@ img {
 }
 
 // Make paragraphs and lists more readable
-p, li {
+p {
   line-height: 1.6;
   margin-bottom: 1em;
+}
+
+li {
+  line-height: 1.5;
+  margin-bottom: 0.4em; /* Reduced from 1em to make lists more compact */
+}
+
+// Add spacing between list items in the navigation
+.site-nav li {
+  margin-bottom: 8px; /* Keep navigation list spacing as-is */
 }
 
 // Buttons and callouts
