@@ -168,28 +168,3 @@ html, body {
   hyphens: auto;
 }
 
-/* Fix footer on mobile */
-.ee-footer__meta {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.ee-footer__inline-list {
-  padding-left: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.ee-footer__inline-list-item {
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 480px) {
-  .ee-footer__inline-list {
-    flex-direction: column;
-  }
-  
-  .ee-footer__inline-list-item {
-    margin-bottom: 5px;
-  }
-}
