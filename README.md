@@ -35,8 +35,6 @@ Equal Experts is committed to leveraging AI tools responsibly and effectively to
 
 For information about contributing to this guidance, please read our [contributing guidelines](contributing.md).
 
-For instructions on setting up the site locally for development, see the [development guide](DEVELOPMENT.md).
-
 ## Contact
 
 For questions or suggestions regarding this guidance, please contact the Equal Experts AI Community of Practice.
