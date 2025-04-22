@@ -1,12 +1,12 @@
-# Contributing to the Defra AI Tool Guidance
+# Contributing to the Equal Experts AI Tool Guidance
 
-Thank you for your interest in contributing to the Defra AI Tool Guidance! This is a living document and a shared resource for all at Defra, and we welcome your contributions to make it better.
+Thank you for your interest in contributing to the Equal Experts AI Tool Guidance! This document is a collaborative resource for all at Equal Experts, and we welcome your contributions to enhance its quality and relevance.
 
 ## How to Contribute
 
 ### Reporting Issues
 
-If you find an error, inconsistency, or area for improvement in the playbook:
+If you find an error, inconsistency, or area for improvement in the guidance:
 
 1. Navigate to the repository's Issues section
 2. Click on "New Issue"
@@ -68,4 +68,4 @@ If you have questions about contributing or need assistance, please:
 1. Check existing issues to see if your question has been answered
 2. Create a new issue with the "question" label if you need further help
 
-Thank you for helping make the Defra AI Tool Guidance better for everyone! 
+Thank you for helping make the Equal Experts AI Tool Guidance better for everyone!
