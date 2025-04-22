@@ -28,6 +28,7 @@ Equal Experts is committed to leveraging AI tools responsibly and effectively to
 - [Cursor - Detailed Guidance](tool-guidance/cursor-detailed.md)
 
 ### Enterprise AI Solutions
+- [AWS Bedrock - Summary Guidance](tool-guidance/aws-bedrock-summary.md)
 - [AWS Bedrock - Detailed Guidance](tool-guidance/aws-bedrock-detailed-todd.md)
 
 ## Contributing
