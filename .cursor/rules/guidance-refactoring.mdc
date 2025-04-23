@@ -1,5 +1,5 @@
 ---
-description: rules for reviewing and refactoring playbook content
+description: Rules for reviewing and refactoring guidance content
 globs: *.md
 ---
 When reviewing and refactoring content:
