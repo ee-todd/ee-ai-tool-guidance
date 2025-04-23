@@ -1,4 +1,4 @@
-# ChatGPT – Summary Report
+# ChatGPT – Summary
 
 This is a high-level summary of the [detailed report](chat-gpt-detailed.md)
 

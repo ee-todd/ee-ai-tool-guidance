@@ -1,4 +1,4 @@
-# Cursor - Summary Guidance
+# Cursor - Summary
 
 This is a high-level summary of the [detailed report](cursor-detailed.md)
 

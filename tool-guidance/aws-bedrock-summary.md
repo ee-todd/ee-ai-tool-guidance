@@ -1,4 +1,4 @@
-# Amazon Bedrock – Summary Report
+# Amazon Bedrock – Summary
 
 This is a high-level summary of the [detailed report](aws-bedrock-detailed-todd.md)
 
