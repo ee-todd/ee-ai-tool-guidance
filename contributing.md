@@ -1,8 +1,3 @@
----
-layout: default
-title: Contributing Guidelines
----
-
 # Contributing to the Equal Experts AI Tool Guidance
 
 Thank you for your interest in contributing to the Equal Experts AI Tool Guidance! This document is a collaborative resource for all at Equal Experts, and we welcome your contributions to enhance its quality and relevance.
