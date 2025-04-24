@@ -33,7 +33,7 @@ Equal Experts is committed to leveraging AI tools responsibly and effectively to
 
 ## Contributing
 
-For information about contributing to this guidance, please read our [contributing guidelines](contributing.md).
+For information about contributing to this guidance, please read our [contributing guidelines](CONTRIBUTING.md).
 
 ## Contact
 
