@@ -29,7 +29,7 @@
   --bg-color: #1a1a1a;
   --text-color: #e0e0e0;
   --link-color: var(--ee-light-blue);
-  --link-hover-color: var(--ee-orange);
+  --link-hover-color: var(--ee-light-blue);
   --nav-bg: #2d2d2d;
   --border-color: #404040;
   --header-color: var(--ee-light-blue);
@@ -649,4 +649,21 @@ blockquote {
   margin-left: 0;
   color: var(--ee-mid-grey);
   font-style: italic;
+}
+
+// Dark mode modifications for accents
+[data-theme="dark"] .ee-button:hover {
+  background-color: #3476a3; /* Slightly darker blue based on ee-light-blue */
+}
+
+[data-theme="dark"] .ee-callout {
+  border-left: 4px solid var(--ee-light-blue);
+}
+
+[data-theme="dark"] blockquote {
+  border-left: 4px solid var(--ee-light-blue);
+}
+
+[data-theme="dark"] .ee-footer__meta {
+  border-top: 4px solid var(--ee-light-blue);
 }
