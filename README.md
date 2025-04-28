@@ -1,39 +1,33 @@
-# Equal Experts AI Tool Guidance
+# Equal Experts AI Tool Guidance Repository
 
 **Document status: DRAFT**
 
-This repository contains guidance for the use of artificial intelligence (AI) tools within Equal Experts and our clients.
+This repository contains the source for the Equal Experts AI Tool Guidance website. It is intended for contributors and maintainers.
 
-## Purpose
+## About This Repository
 
-This guidance provides factual, practical information about:
-- The effective use of AI tools in software development and business contexts
-- Data management and security considerations
-- Privacy guidelines and compliance requirements
-- Best practice settings for AI implementation
-- Productivity enhancement through responsible AI use
+The guidance content in this repository is published as a public-facing website to support Equal Experts consultants and clients in the effective, responsible use of artificial intelligence (AI) tools.
 
-## Overview
+For the published guidance, visit the website or see `index.md` for the landing page content.
 
-Equal Experts is committed to leveraging AI tools responsibly and effectively to enhance our work. This guide helps our consultants and clients understand and implement AI tools in their workflow.
+## Using and Building the Site Locally
 
-## Table of Contents
+This site is built with [Jekyll](https://jekyllrb.com/). To preview or develop locally:
 
-### Productivity Tools
-- [ChatGPT - Summary Guidance](tool-guidance/chat-gpt-summary.md)
-- [ChatGPT - Detailed Guidance](tool-guidance/chat-gpt-detailed.md)
-
-### Development Tools
-- [Cursor - Summary Guidance](tool-guidance/cursor-summary.md)
-- [Cursor - Detailed Guidance](tool-guidance/cursor-detailed.md)
-
-### Enterprise AI Solutions
-- [AWS Bedrock - Summary Guidance](tool-guidance/aws-bedrock-summary.md)
-- [AWS Bedrock - Detailed Guidance](tool-guidance/aws-bedrock-detailed-todd.md)
+1. Ensure you have Ruby and Bundler installed.
+2. Install dependencies:
+   ```sh
+   bundle install
+   ```
+3. Serve the site locally:
+   ```sh
+   bundle exec jekyll serve
+   ```
+4. Visit `http://localhost:4000` in your browser.
 
 ## Contributing
 
-For information about contributing to this guidance, please read our [contributing guidelines](CONTRIBUTING.md).
+We welcome contributions to improve this guidance. Please read our [contributing guidelines](CONTRIBUTING.md) before submitting changes.
 
 ## Contact
 
