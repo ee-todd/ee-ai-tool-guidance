@@ -28,6 +28,8 @@ Equal Experts is committed to leveraging AI tools responsibly and effectively to
 ### Development Tools
 - [Cursor - Summary Guidance](tool-guidance/cursor-summary.md)
 - [Cursor - Detailed Guidance](tool-guidance/cursor-detailed.md)
+- [GitHub Copilot - Summary Guidance](tool-guidance/github-copilot-summary.md)
+- [GitHub Copilot - Detailed Guidance](tool-guidance/github-copilot-detailed.md)
 
 ### Enterprise AI Solutions
 - [AWS Bedrock - Summary Guidance](tool-guidance/aws-bedrock-summary.md)
